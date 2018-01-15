@@ -1,11 +1,11 @@
 var verificationCodeComponent = Vue.extend({
     template: '<div id="verificationCode">' +
-    '<input type="text" id="inputCode" @blur="checkCode()" placeholder="请输入验证码">' +
-    '<input type="button" id="randomCode" @click="createCode()">' +
-    '<span id="checkResult" style="color:red"></span>' +
-    '</div>',
+                    '<input type="text" id="inputCode" @blur="checkCode()" placeholder="请输入验证码">' +
+                    '<input type="button" id="randomCode" @click="createCode()">' +
+                    '<span id="checkResult" style="color:red"></span>' +
+              '</div>',
     data: function () {
-        return {}
+        return {checkResult:true}
     },
     mounted: function () {
         this.createCode();
