@@ -2,8 +2,9 @@
 <html>
 <head>
     <title>Vue Index</title>
-    <script src="resources/js/vue.min.js"></script>
+    <script type="text/javascript" src="resources/js/vue.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="resources/js/vue-components.js"></script>
 </head>
 <body>
 <div id="app">
@@ -21,22 +22,20 @@
         </tbody>
         <tr>
             <td colspan="2">
-                <VerificationCode></VerificationCode>
+                <VerificationCodeComponent></VerificationCodeComponent>
             </td>
         </tr>
     </table>
 </div>
 
-<script>
-    import VerificationCode from "./resources/verificationcode.vue";
-
+<script type="text/javascript">
     var appVm = new Vue({
         el: '#app',
         data: {
             message: 'Hello Vue.js!'
         },
         components: {
-            VerificationCode
+            'VerificationCodeComponent': verificationCodeComponent
         }
     })
 </script>
