@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello, Element UI</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+
+    <hr/>
+
+    <div>
+        <el-button @click="visible = true">按钮</el-button>
+        <el-dialog :visible.sync="visible" title="Hello world">
+            <p>欢迎使用 Element</p>
+        </el-dialog>
+    </div>
+
+    <hr/>
+
+    <div>
+        <el-button @click="show2 = !show2">Click Me</el-button>
+        <div style="display: flex; margin-top: 20px; height: 100px;">
+            <transition name="el-zoom-in-center">
+                <div v-show="show2" class="transition-box">.el-zoom-in-center</div>
+            </transition>
+
+            <transition name="el-zoom-in-top">
+                <div v-show="show2" class="transition-box">.el-zoom-in-top</div>
+            </transition>
+
+            <transition name="el-zoom-in-bottom">
+                <div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
+            </transition>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div>
+        <el-button type="primary" :loading="loading" @click="loadingChange()"><span v-if="!loading">加载特效</span><span v-if="loading">加载中</span></el-button>
+    </div>
+
+    <hr/>
+
+    <div>
+        <el-radio-group v-model="cityRadio">
+            <el-radio-button label="上海"></el-radio-button>
+            <el-radio-button label="北京"></el-radio-button>
+            <el-radio-button label="广州"></el-radio-button>
+            <el-radio-button label="深圳"></el-radio-button>
+        </el-radio-group>
+
+        {{cityRadio}}
+    </div>
+
+    <hr/>
+</div>
+
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                visible: false,
+                show2: true,
+                loading : false,
+                cityRadio: '广州'
+            }
+        },
+        methods: {
+            loadingChange: function() {
+                this.loading = !this.loading;
+                var _this = this;
+                setTimeout(function(){
+                    _this.loading = !_this.loading;;
+                },3000)
+            }
+        }
+    });
+</script>
+
+<style>
+    .transition-box {
+        margin-bottom: 10px;
+        width: 200px;
+        height: 100px;
+        border-radius: 4px;
+        background-color: #409EFF;
+        text-align: center;
+        color: #fff;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        margin-right: 20px;
+    }
+</style>
+</html>
