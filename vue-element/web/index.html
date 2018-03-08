@@ -57,6 +57,11 @@
     </div>
 
     <hr/>
+
+    <div>
+        <el-button @click="route()">跳转route.html测试</el-button>
+    </div>
+    <hr/>
 </div>
 
 </body>
@@ -82,6 +87,9 @@
                 setTimeout(function(){
                     _this.loading = !_this.loading;;
                 },3000)
+            },
+            route: function () {
+                window.location.href="./route";
             }
         }
     });

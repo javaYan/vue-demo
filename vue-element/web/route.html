@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello, Element UI</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+
+    <hr/>
+
+    <div>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="TYPE1" name="type1"></el-tab-pane>
+            <el-tab-pane label="TYPE2" name="type2"></el-tab-pane>
+            <el-tab-pane label="TYPE3" name="type3"></el-tab-pane>
+        </el-tabs>
+    </div>
+
+    <hr/>
+
+</div>
+
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                activeName: 'type1'
+            }
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab);
+                window.location.href="./route?type=type1";
+            },
+            route: function () {
+                window.location.href="./route";
+            }
+        }
+    });
+</script>
+</html>
